@@ -6,7 +6,7 @@
 #    By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 17:52:23 by hbelle            #+#    #+#              #
-#    Updated: 2024/08/31 14:37:53 by hbelle           ###   ########.fr        #
+#    Updated: 2024/08/31 14:46:47 by hbelle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@gcc $(CFLAGS) $(HEADER) -c  $< -o $@
+	@cc $(CFLAGS) $(HEADER) -c  $< -o $@
 	@if test -s $*.c; then\
 			echo "\033[01m\033[35mCompiling ⌛\033[00m\
 			\033[36m$*.c\033[032m  [OK] ✅ \033[00m";\
@@ -35,7 +35,7 @@ $(OBJ_DIR)/%.o: %.c
 			\033[36m$*.c\033[00m\  [Error] ❌ \033[00m"; fi
 
 $(NAME): $(OBJTS) $(LIBASM)
-	@gcc -o $(NAME) $(OBJTS) $(CFLAGS) $(HEADER) $(LIBS)
+	@cc -o $(NAME) $(OBJTS) $(CFLAGS) $(HEADER) $(LIBS)
 	@echo "\033[01m\033[4;33mCompilation done\033[00m\033[1;31m =▶\033[00m\033[1;32m ./${NAME}\033[00m"
 
 $(LIBASM):
