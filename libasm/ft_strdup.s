@@ -5,12 +5,13 @@ section .text
         extern ft_strcpy
 
 ft_strdup:
+        push rbx
         xor rax, rax
-        xor r12, r12
+        xor rbx, rbx
 
         call ft_strlen
         add rax, 1
-        mov r12, rdi
+        mov rbx, rdi
 
         mov rdi, rax
 
@@ -19,10 +20,11 @@ ft_strdup:
         jz out
         
         mov rdi, rax
-        mov rsi, r12
+        mov rsi, rbx
         call ft_strcpy
 
 out:
+        pop rbx
         ret
 
 section .note.GNU-stack alloc

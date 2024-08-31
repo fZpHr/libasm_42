@@ -24,7 +24,7 @@ char *ft_strdup(const char *s);
 int main(void)
 {
     char str[] = "Hello, World";
-    char str2[] = "Hello, WorldA";
+    char str2[] = "Hello, World!";
     char dest[100];
     char dest2[100];
     
