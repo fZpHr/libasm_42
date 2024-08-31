@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 //COLOR
 #define RED "\033[0;31m"
@@ -52,8 +53,11 @@ int main(void)
     ft_read(0, buf, 100);
     printf(GREEN "NO OFFICIAL -> %s\n\n", buf);
 
-    
-
+    printf(RED "----------Strdup----------\n");
+    char *str3 = strdup(str);
+    char *str4 = ft_strdup(str2);
+    printf(BLUE "OFFICIAL -> %s\n", str3);
+    printf(GREEN "NO OFFICIAL -> %s\n\n", str4);
 
     return (0);
 }

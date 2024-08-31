@@ -1,26 +1,28 @@
 section .text 
-        global ft_dup
+        global ft_strdup
         extern malloc
         extern ft_strlen
         extern ft_strcpy
 
-ft_dup:
-        push rbx
+ft_strdup:
         xor rax, rax
-        xor rdx, rdx
-        xor rcx, rcx
+        xor rsi, rsi
+
+        call ft_strlen
+        add rax, 1
+        mov rsi, rdi
+
+        mov rdi, rax
+        xor rax,rax
+
+        call malloc
+        test rax, rax
+        jz out
         
-        mov rax, rdi
-loop:
-        cmp BYTE [rsi + rdx], 0
-        je out
-        mov cl, [rsi + rdx]
-        mov [rdi + rdx], cl
-        inc rdx
-        jmp loop
+        mov rdi, rax
+        call ft_strcpy
+
 out:
-        mov BYTE [rdi + rdx], 0
-        pop rbx
         ret
 
-section .note.GNU-stack noalloc progbits
+section .note.GNU-stack alloc
