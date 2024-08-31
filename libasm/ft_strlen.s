@@ -4,7 +4,6 @@ section .text
 ft_strlen:
         xor rax,rax
 loop:
-
         cmp BYTE [rdi + rax], 0
         je out
         inc rax

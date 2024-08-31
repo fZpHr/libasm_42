@@ -14,7 +14,7 @@ ft_strdup:
 
         mov rdi, rax
 
-        call malloc
+        call malloc     WRT ..plt
         test rax, rax
         jz out
         
@@ -25,4 +25,4 @@ ft_strdup:
 out:
         ret
 
-; section .note.GNU-stack alloc
+section .note.GNU-stack alloc

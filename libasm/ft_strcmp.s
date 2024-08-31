@@ -30,4 +30,4 @@ dl_greater:
         ret
 
 
-section .note.GNU-stack noalloc progbits
+section .note.GNU-stack noalloc
