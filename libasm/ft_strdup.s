@@ -6,23 +6,23 @@ section .text
 
 ft_strdup:
         xor rax, rax
-        xor rsi, rsi
+        xor r12, r12
 
         call ft_strlen
         add rax, 1
-        mov rsi, rdi
+        mov r12, rdi
 
         mov rdi, rax
-        xor rax,rax
 
         call malloc
         test rax, rax
         jz out
         
         mov rdi, rax
+        mov rsi, r12
         call ft_strcpy
 
 out:
         ret
 
-section .note.GNU-stack alloc
+; section .note.GNU-stack alloc

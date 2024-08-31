@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@cc $(CFLAGS) $(HEADER) -c  $< -o $@
+	@gcc $(CFLAGS) $(HEADER) -c  $< -o $@
 	@if test -s $*.c; then\
 			echo "\033[01m\033[35mCompiling ⌛\033[00m\
 			\033[36m$*.c\033[032m  [OK] ✅ \033[00m";\
@@ -35,7 +35,7 @@ $(OBJ_DIR)/%.o: %.c
 			\033[36m$*.c\033[00m\  [Error] ❌ \033[00m"; fi
 
 $(NAME): $(OBJTS) $(LIBASM)
-	@cc -o $(NAME) $(OBJTS) $(CFLAGS) $(HEADER) $(LIBS)
+	@gcc -o $(NAME) $(OBJTS) $(CFLAGS) $(HEADER) $(LIBS)
 	@echo "\033[01m\033[4;33mCompilation done\033[00m\033[1;31m =▶\033[00m\033[1;32m ./${NAME}\033[00m"
 
 $(LIBASM):
